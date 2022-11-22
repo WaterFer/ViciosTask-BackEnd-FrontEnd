@@ -11,10 +11,11 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const authExtractor = require('./middleware/auth');
 const logoutRouter = require('./controllers/logOut');
+const {MONGO_URI} = require('./config');
 
 (async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI_TEST);
+    await mongoose.connect(MONGO_URI);
     console.log('Conecto a MongoDB');
   } catch (error) {
     console.log('No Conecto a MongoDB');

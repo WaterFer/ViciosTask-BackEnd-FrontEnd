@@ -7,7 +7,7 @@ logoutRouter.get('/', async (request, response) =>{
 
 
     response.clearCookie('accessToken', {
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         httpOnly: true
     })
     console.log(cookies);
